@@ -1,0 +1,1627 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{
+            pdftitle={Appendix S4},
+            pdfauthor={Alison C. Ketz},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{Appendix S4}
+\author{Alison C. Ketz}
+\date{11/10/2021}
+
+\begin{document}
+\maketitle
+
+\section{Simulation}\label{simulation}
+
+This appendix provides R code for generating the age-period survival
+data with two example hazard functions that were used in the manuscript
+for data generation. Each step in the data generating function will be
+described and then the full executable function will be provided. Stand
+alone executable R files for the data generating function are also
+provided. Then we describe how to format the data for fitting all of
+these models. The model fitting procedure for a single model is
+described in detail. We have provided code for each of the 10 models
+that were fit using NIMBLE, where each model has four R scripts
+including: 1) A script to execute and run all the additional Rscripts
+for each simulation as well as for providing necessary libraries. 2) A
+preliminary script that runs the data generating and formatting scripts,
+computes the necessary basis functions, and calculates constants needed
+for model fitting. 3) A script for running the models in nimble with
+additional nimble functions used for intermediary calculations. 4) An R
+script for doing model checking and plotting of results. These four R
+scripts for each model are provided for both hazard function simulations
+- the R-select or K-select simulation.
+
+\subsection{Kselect Data Generation}\label{kselect-data-generation}
+
+First we specify necessary constants, including the intercept for the
+log hazard, i.e.~the baseline hazard rate, the number of individuals
+that are ``collared'', and the maximum number of age intervals and
+period intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# sample size of individuals from each year}
+\NormalTok{  n_yr1 <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{  n_yr2 <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{  n <-}\StringTok{ }\NormalTok{n_yr1 }\OperatorTok{+}\StringTok{ }\NormalTok{n_yr2}
+  
+  \CommentTok{# intercept}
+\NormalTok{  beta0 <-}\StringTok{ }\OperatorTok{-}\DecValTok{5}
+
+\NormalTok{  ### maximum age interval}
+\NormalTok{  nT_age <-}\StringTok{ }\DecValTok{400}
+
+\NormalTok{  ### maximum period interval}
+\NormalTok{  nT_period <-}\StringTok{ }\DecValTok{104}
+\end{Highlighting}
+\end{Shaded}
+
+We generate the ages of individuals upon entry (left\_age) and we must
+generate the period of entry (left\_period). We specify individuals
+entering the population assuming a stable age distribution, which means
+that the left age entry is generated using the same baseline hazard over
+the ages as the age effect for the generating hazard function. We
+specified staggered entry of equal probability over 8 interval periods
+for the period of entry. We also specified staggered entry such that the
+approximate entry of collared individuals are split between different
+``years'', if we consider that the intervals used for period effects
+reflect 2 years of a study, despite the fact that these data are
+simulated and the intervals could ultimately be reflecting any study
+period of time. The maximum age that an individual in the study can live
+is the difference between the maximum period and the entry period
+(maxtimes).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  #####################################################}
+\NormalTok{  ### Age at entry with staggered entry,}
+\NormalTok{  ### drawn from a stable age distribution}
+\NormalTok{  ### based on the age effect hazard}
+\NormalTok{  ### for 2 'years', and for the age that}
+\NormalTok{  ### individuals that go from birth to censoring}
+\NormalTok{  #####################################################}
+
+  \CommentTok{#Age effects on log hazard}
+  \CommentTok{#baseline is a quadratic function}
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{) }
+\NormalTok{  age_effect <-}\StringTok{ }\FloatTok{5e-05} \OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\FloatTok{0.02} \OperatorTok{*}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\DecValTok{1} 
+
+  \CommentTok{#Inducing wiggles during the early age intervals}
+\NormalTok{  anthro <-}\StringTok{ }\NormalTok{.}\DecValTok{5} \OperatorTok{*}\StringTok{ }\KeywordTok{cos}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\DecValTok{26} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{age)}
+\NormalTok{  anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{19}\NormalTok{] <-}\StringTok{ }\DecValTok{0}
+\NormalTok{  anthro[}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{171}\OperatorTok{:}\NormalTok{(nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] <-}\StringTok{ }\DecValTok{0} 
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+
+\NormalTok{  hazard_se <-}\StringTok{ }\OperatorTok{-}\KeywordTok{exp}\NormalTok{((beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect))}
+\NormalTok{  stat_se <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{nT_period)}
+\NormalTok{  stat_se[}\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(hazard_se[}\DecValTok{1}\NormalTok{]))}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\NormalTok{(nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{nT_period)) \{}
+\NormalTok{    stat_se[j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(hazard_se[j])) }\OperatorTok{*}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{sum}\NormalTok{(hazard_se[}\DecValTok{1}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)]))}
+\NormalTok{  \}}
+\NormalTok{  left_age <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n, stat_se)}
+
+\NormalTok{  ###########################################}
+  \CommentTok{# Staggered entry period effects}
+\NormalTok{  ###########################################}
+
+\NormalTok{  weeks_entry <-}\StringTok{ }\DecValTok{8}
+\NormalTok{  left_yr1 <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n_yr1, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{weeks_entry, weeks_entry))}
+\NormalTok{  left_yr2 <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n_yr2, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{weeks_entry, weeks_entry))}
+\NormalTok{  left_period <-}\StringTok{ }\KeywordTok{c}\NormalTok{(left_yr1, left_yr2)}
+
+  \CommentTok{# no staggered entry}
+\NormalTok{  maxtimes <-}\StringTok{ }\NormalTok{nT_period }\OperatorTok{-}\StringTok{ }\NormalTok{left_period}
+\end{Highlighting}
+\end{Shaded}
+
+Then we must specify the hazard functions. These could be any functional
+(mathematical) form. We have tried to use reasonable variants that would
+reflect hazards for our study systems. For the age effects for the
+K-selected species, we used a quadratic shape curve with extra wiggles
+that are introduced by the additive functional shape (anthro). We
+allowed the additive effect to gradually start and end over the first
+half of the ages using the decay sequence. Then we specified the period
+effects using a periodic curve.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ########################################}
+  \CommentTok{# Age effects for the log hazard}
+\NormalTok{  ########################################}
+
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  age_effect <-}\StringTok{ }\FloatTok{5e-05} \OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\FloatTok{0.02} \OperatorTok{*}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+ 
+\NormalTok{  ########################################}
+\NormalTok{  ### Period effects for the log hazard }
+\NormalTok{  ########################################}
+
+\NormalTok{  period <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_period }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\DecValTok{1} \OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(}\DecValTok{2}\OperatorTok{/}\DecValTok{52} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{(period) }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{period_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(period_effect)}
+\end{Highlighting}
+\end{Shaded}
+
+We calculate the log hazard by the assuming the age effects and period
+effects are additive. Therefore, we add the age effects and period
+effects to the intercept baseline hazard from the age at entry to the
+maximum possible age, and across the period effects from left entry to
+the maximum possible period for each individual.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ########################################}
+\NormalTok{  ### Log hazard}
+\NormalTok{  ########################################}
+\NormalTok{  hazard <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    hazard[i,] <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{), beta0}\OperatorTok{+}
+\StringTok{                      }\NormalTok{age_effect[left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] }\OperatorTok{+}
+\StringTok{                      }\NormalTok{period_effect[left_period[i]}\OperatorTok{:}\NormalTok{(left_period[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)],}
+                      \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i])))}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+Then we must calculate the probability of mortality in each interval
+based on the complementary log-log link function. The first period that
+an individual enters the study has a probability of mortality during
+that period that is a straightforward exponential link transformation.
+The subsequent periods depend on the cumulative probability of surviving
+the previous intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ########################################}
+\NormalTok{  ### Probability of mortality}
+\NormalTok{  ########################################}
+
+\NormalTok{  test_stat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+      \ControlFlowTok{if}\NormalTok{ (j}\OperatorTok{==}\NormalTok{left_age[i]) \{}
+\NormalTok{        test_stat[i, j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}
+\NormalTok{      \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        test_stat[i, j] <-}
+\StringTok{          }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{    test_stat[i, left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]] <-}
+\StringTok{          }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+Based on the probability of mortality during all of the possible periods
+that an individual is considered part of the study, we must draw when
+they ``fail'', i.e.~die, using the multinomial distribution (a
+categorical distribution could also be used). The age interval when the
+failure event occurs, or mortality event, can then be calculated based
+on the age at entry. If there is no mortality event, an individual is
+right censored. Lastly, based on the age of entry, period of entry, and
+right age, we can calculate the period interval of exit from the study,
+either through mortality or from right censoring.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ########################################}
+\NormalTok{  ### Calculating right censoring}
+\NormalTok{  ########################################}
+\NormalTok{  fail_int <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  right_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  rt_censor <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    fail_int[i] <-}\StringTok{ }\KeywordTok{which}\NormalTok{(}\KeywordTok{rmultinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, test_stat[i,}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    right_age[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{>=}\StringTok{ }\NormalTok{left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                           left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i], fail_int[i] }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    rt_censor[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{<}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]), }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}
+
+\NormalTok{  right_period <-}\StringTok{ }\NormalTok{right_age }\OperatorTok{-}\StringTok{ }\NormalTok{left_age }\OperatorTok{+}\StringTok{ }\NormalTok{left_period}
+\end{Highlighting}
+\end{Shaded}
+
+Lastly, we return values that were both specified or generated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ n,}
+              \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+              \DataTypeTok{nT_period =}\NormalTok{ nT_period,}
+              \DataTypeTok{beta0 =}\NormalTok{ beta0,}
+              \DataTypeTok{age_effect =}\NormalTok{ age_effect,}
+              \DataTypeTok{period_effect =}\NormalTok{ period_effect,}
+              \DataTypeTok{hazard =}\NormalTok{ hazard,}
+              \DataTypeTok{test_stat =}\NormalTok{ test_stat,}
+              \DataTypeTok{right_age =}\NormalTok{ right_age,}
+              \DataTypeTok{left_age =}\NormalTok{ left_age,}
+              \DataTypeTok{right_period =}\NormalTok{ right_period,}
+              \DataTypeTok{left_period =}\NormalTok{ left_period,}
+              \DataTypeTok{rt_censor =}\NormalTok{ rt_censor,}
+              \DataTypeTok{prop_right_cens =} \KeywordTok{sum}\NormalTok{(right_age }\OperatorTok{==}\StringTok{ }\NormalTok{nT_age)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(right_age)}
+\NormalTok{              )}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+The following code provides the full function that can be used to
+generate the age-period survival data. It is also provided in the R file
+S4\_age\_period\_survival\_generate\_data\_kselect.R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ageperiod_surv_sim_data_kselect <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() \{}
+  
+  \CommentTok{# sample size of individuals from each year}
+\NormalTok{  n_yr1 <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{  n_yr2 <-}\StringTok{ }\DecValTok{1000}
+\NormalTok{  n <-}\StringTok{ }\NormalTok{n_yr1 }\OperatorTok{+}\StringTok{ }\NormalTok{n_yr2}
+  
+  \CommentTok{# intercept}
+\NormalTok{  beta0 <-}\StringTok{ }\OperatorTok{-}\DecValTok{5}
+
+\NormalTok{  ### maximum age interval}
+\NormalTok{  nT_age <-}\StringTok{ }\DecValTok{400}
+
+\NormalTok{  ### maximum period interval}
+\NormalTok{  nT_period <-}\StringTok{ }\DecValTok{104}
+
+\NormalTok{  #####################################################}
+\NormalTok{  ### Age at entry with staggered entry,}
+\NormalTok{  ### drawn from a stable age distribution}
+\NormalTok{  ### based on the age effect hazard}
+\NormalTok{  ### for 2 'years', and for the age that}
+\NormalTok{  ### individuals that go from birth to censoring}
+\NormalTok{  #####################################################}
+
+  \CommentTok{#Age effects on log hazard}
+  \CommentTok{#baseline is a quadratic function}
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{) }
+\NormalTok{  age_effect <-}\StringTok{ }\FloatTok{5e-05} \OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\FloatTok{0.02} \OperatorTok{*}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\DecValTok{1} 
+
+  \CommentTok{#Inducing wiggles during the early age intervals}
+\NormalTok{  anthro <-}\StringTok{ }\NormalTok{.}\DecValTok{5} \OperatorTok{*}\StringTok{ }\KeywordTok{cos}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\DecValTok{26} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{age)}
+\NormalTok{  anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{19}\NormalTok{] <-}\StringTok{ }\DecValTok{0}
+\NormalTok{  anthro[}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{20}\OperatorTok{:}\DecValTok{38}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{50}\OperatorTok{:}\DecValTok{170}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{171}\OperatorTok{:}\NormalTok{(nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] <-}\StringTok{ }\DecValTok{0} 
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+
+\NormalTok{  hazard_se <-}\StringTok{ }\OperatorTok{-}\KeywordTok{exp}\NormalTok{((beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect))}
+\NormalTok{  stat_se <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{nT_period)}
+\NormalTok{  stat_se[}\DecValTok{1}\NormalTok{] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(hazard_se[}\DecValTok{1}\NormalTok{]))}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\NormalTok{(nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{nT_period)) \{}
+\NormalTok{    stat_se[j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(hazard_se[j])) }\OperatorTok{*}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\KeywordTok{sum}\NormalTok{(hazard_se[}\DecValTok{1}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)]))}
+\NormalTok{  \}}
+\NormalTok{  left_age <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n, stat_se)}
+
+\NormalTok{  ###########################################}
+  \CommentTok{# Staggered entry period effects}
+\NormalTok{  ###########################################}
+
+\NormalTok{  weeks_entry <-}\StringTok{ }\DecValTok{8}
+\NormalTok{  left_yr1 <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n.yr1, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{weeks_entry, weeks_entry))}
+\NormalTok{  left_yr2 <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n.yr2, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{weeks_entry, weeks_entry))}
+\NormalTok{  left_period <-}\StringTok{ }\KeywordTok{c}\NormalTok{(left_yr1, left_yr2)}
+
+  \CommentTok{# no staggered entry}
+\NormalTok{  maxtimes <-}\StringTok{ }\NormalTok{nT_period }\OperatorTok{-}\StringTok{ }\NormalTok{left_period}
+
+\NormalTok{  ########################################}
+  \CommentTok{# Age effects for the log hazard}
+\NormalTok{  ########################################}
+
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  age_effect <-}\StringTok{ }\FloatTok{5e-05} \OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\FloatTok{0.02} \OperatorTok{*}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\DecValTok{1}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+ 
+\NormalTok{  ########################################}
+\NormalTok{  ### Period effects for the log hazard }
+\NormalTok{  ########################################}
+
+\NormalTok{  period <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_period }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\DecValTok{1} \OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(}\DecValTok{2}\OperatorTok{/}\DecValTok{52} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{(period) }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{period_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(period_effect)}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Log hazard}
+\NormalTok{  ########################################}
+\NormalTok{  hazard <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    hazard[i,] <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{), beta0}\OperatorTok{+}
+\StringTok{                      }\NormalTok{age_effect[left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] }\OperatorTok{+}
+\StringTok{                      }\NormalTok{period_effect[left_period[i]}\OperatorTok{:}\NormalTok{(left_period[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)],}
+                      \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i])))}
+\NormalTok{  \}}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Probability of mortality}
+\NormalTok{  ########################################}
+
+\NormalTok{  test_stat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+      \ControlFlowTok{if}\NormalTok{ (j}\OperatorTok{==}\NormalTok{left_age[i]) \{}
+\NormalTok{        test_stat[i, j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}
+\NormalTok{      \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        test_stat[i, j] <-}
+\StringTok{          }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{    test_stat[i, left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]] <-}
+\StringTok{          }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{  \}}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Calculating right censoring}
+\NormalTok{  ########################################}
+\NormalTok{  fail_int <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  right_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  rt_censor <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    fail_int[i] <-}\StringTok{ }\KeywordTok{which}\NormalTok{(}\KeywordTok{rmultinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, test_stat[i,}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    right_age[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{>=}\StringTok{ }\NormalTok{left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                           left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i], fail_int[i] }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    rt_censor[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{<}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]), }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}
+
+\NormalTok{  right_period <-}\StringTok{ }\NormalTok{right_age }\OperatorTok{-}\StringTok{ }\NormalTok{left_age }\OperatorTok{+}\StringTok{ }\NormalTok{left_period}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Return values}
+\NormalTok{  ########################################}
+
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ n,}
+              \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+              \DataTypeTok{nT_period =}\NormalTok{ nT_period,}
+              \DataTypeTok{beta0 =}\NormalTok{ beta0,}
+              \DataTypeTok{age_effect =}\NormalTok{ age_effect,}
+              \DataTypeTok{period_effect =}\NormalTok{ period_effect,}
+              \DataTypeTok{hazard =}\NormalTok{ hazard,}
+              \DataTypeTok{test_stat =}\NormalTok{ test_stat,}
+              \DataTypeTok{right_age =}\NormalTok{ right_age,}
+              \DataTypeTok{left_age =}\NormalTok{ left_age,}
+              \DataTypeTok{right_period =}\NormalTok{ right_period,}
+              \DataTypeTok{left_period =}\NormalTok{ left_period,}
+              \DataTypeTok{rt_censor =}\NormalTok{ rt_censor,}
+              \DataTypeTok{prop_right_cens =} \KeywordTok{sum}\NormalTok{(right_age }\OperatorTok{==}\StringTok{ }\NormalTok{nT_age) }\OperatorTok{/}\StringTok{ }\KeywordTok{length}\NormalTok{(right_age)}
+\NormalTok{              )}
+\NormalTok{         )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Rselect Data Generation}\label{rselect-data-generation}
+
+First we have to set constants, including the intercept for the log
+hazard, i.e.~the baseline hazard rate, the number of individuals that
+are ``collared'', and the maximum number of age intervals and period
+intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# sample size of individuals}
+\NormalTok{  n <-}\StringTok{ }\DecValTok{1000}
+
+  \CommentTok{# intercept of the log hazard}
+\NormalTok{  beta0 <-}\StringTok{ }\OperatorTok{-}\DecValTok{4}
+
+\NormalTok{  ### maximum age interval}
+\NormalTok{  nT_age <-}\StringTok{ }\DecValTok{130}
+
+\NormalTok{  ### maximum period interval}
+\NormalTok{  nT_period <-}\StringTok{ }\DecValTok{130}
+\end{Highlighting}
+\end{Shaded}
+
+Then we must generate the ages of individuals upon entry (left\_age) and
+we must generate the period of entry (left\_period). The maximum age
+that an individual in the study can live to is the difference between
+the maximum period and the entry period (maxtimes). An individual that
+is of age 1 that enters into the population can be alive and a maximum
+age within the study of (nT\_period - left\_period). Here we specified
+all individuals entering the population at age 1, with staggered entry
+based on equal probability over the first 50 period intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  ### For the rselect simlation, all individuals enter at age 1}
+\NormalTok{  left_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, n)}
+
+\NormalTok{  ### Staggered entry during the first 50 intervals}
+\NormalTok{  interval_entry <-}\StringTok{ }\DecValTok{50}
+\NormalTok{  left_period <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{( }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{interval_entry, interval_entry))}
+
+\NormalTok{  ### The maximum age that an individual can be alive and in the study}
+\NormalTok{  ### must be calculated to restrict the right age during generation}
+\NormalTok{  maxtimes <-}\StringTok{ }\NormalTok{nT_period}\OperatorTok{-}\NormalTok{left_period}
+\end{Highlighting}
+\end{Shaded}
+
+Then we specify the hazard functions. These could be any functional
+(mathematical) form. We have tried to use reasonable variants that would
+reflect hazards for our study systems. For the age effect for the
+R-selected species, we used a Weibull shape curve with extra wiggles
+that are introduced by the additive functional shape (anthro). We
+allowed the additive effect to gradually start and end over the first
+half of the ages using the decay sequence. Then we specified the period
+effects to be a periodic curve.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# Age effects for the log hazard}
+  \CommentTok{# Baseline Weibull hazard of Age Effects}
+\NormalTok{  lam <-.}\DecValTok{95}
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{) }
+\NormalTok{  age_effect <-}\StringTok{ }\DecValTok{3} \OperatorTok{*}\StringTok{ }\NormalTok{lam }\OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\NormalTok{(}\OperatorTok{-}\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{lam))}
+
+  \CommentTok{#Inducing wiggles during the early age intervals}
+\NormalTok{  anthro <-}\StringTok{ }\NormalTok{.}\DecValTok{1} \OperatorTok{*}\StringTok{ }\KeywordTok{cos}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\DecValTok{8} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{age)}
+\NormalTok{  anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{ , }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{103}\OperatorTok{:}\NormalTok{(nT_age}\OperatorTok{-}\DecValTok{1}\NormalTok{)] <-}\StringTok{ }\DecValTok{0}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+  
+\NormalTok{  ########################################}
+\NormalTok{  ### Period effects for the log hazard}
+\NormalTok{  ########################################}
+\NormalTok{  period <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_period }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{.}\DecValTok{5} \OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(}\DecValTok{5}\OperatorTok{/}\NormalTok{(}\DecValTok{120} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{period) }\OperatorTok{+}\StringTok{ }\DecValTok{5}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{period_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(period_effect)}
+\end{Highlighting}
+\end{Shaded}
+
+We calculate the log hazard by the assuming the age effects and period
+effects are additive. Therefore, we add the age effects and period
+effects to the intercept baseline hazard from the age at entry to the
+maximum possible age, and across the period effects from left entry to
+the maximum possible period.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# Calculating the Hazard}
+\NormalTok{  hazard <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    hazard[i,] <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,left_age[i]}\OperatorTok{-}\DecValTok{1}\NormalTok{), beta0 }\OperatorTok{+}
+\StringTok{                      }\NormalTok{age_effect[left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] }\OperatorTok{+}
+\StringTok{                      }\NormalTok{period_effect[left_period[i]}\OperatorTok{:}\NormalTok{(left_period[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)],}
+                      \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i])))}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+Then we calculate the probability of mortality in each interval based on
+the complementary log-log link function. The first period that an
+individual enters the study has a probability of mortality during that
+period that is a straightforward inverse of the complementary log-log
+link transformation. The subsequent periods depend on the cumulative
+probability of surviving the previous intervals.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{# Calculating the probability of mortality in each interval}
+\NormalTok{  test_stat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+      \ControlFlowTok{if}\NormalTok{ (j }\OperatorTok{==}\StringTok{ }\NormalTok{left_age[i]) \{}
+\NormalTok{        test_stat[i, j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}
+\NormalTok{      \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        test_stat[i, j] <-}
+\StringTok{           }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j]))) }\OperatorTok{*}
+\StringTok{           }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{    test_stat[i, left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]] <-}
+\StringTok{            }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i]}
+            \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+Based on the probability of mortality during all of the possible periods
+that an individual is considered part of the study, we must draw when
+they die using the multinomial distribution (a categorical distribution
+could also be used). The age when the failure, or mortality event occurs
+can be calculated based on the age at entry. If there is no mortality
+event, an individual is right censored. Lastly, based on the age of
+entry, period of entry, and right age, we calculate the period of exit
+from the study, either through mortality or from right censoring.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculating right censoring}
+\NormalTok{  fail_int <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  right_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  rt_censor <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{    fail_int[i] <-}\StringTok{ }\KeywordTok{which}\NormalTok{(}\KeywordTok{rmultinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, test_stat[i, }\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    right_age[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{>=}\StringTok{ }\NormalTok{left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                          left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                          fail_int[i] }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    rt_censor[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{<}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]), }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{  right_period <-}\StringTok{ }\NormalTok{right_age }\OperatorTok{-}\StringTok{ }\NormalTok{left_age }\OperatorTok{+}\StringTok{ }\NormalTok{left_period}
+\end{Highlighting}
+\end{Shaded}
+
+Lastly, we return on values that were specified or generated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ n,}
+              \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+              \DataTypeTok{nT_period =}\NormalTok{ nT_period,}
+              \DataTypeTok{beta0 =}\NormalTok{ beta0,}
+              \DataTypeTok{age_effect =}\NormalTok{ age_effect,}
+              \DataTypeTok{period_effect =}\NormalTok{ period_effect,}
+              \DataTypeTok{hazard =}\NormalTok{ hazard,}
+              \DataTypeTok{test_stat =}\NormalTok{ test_stat,}
+              \DataTypeTok{right_age =}\NormalTok{ right_age,}
+              \DataTypeTok{left_age =}\NormalTok{ left_age,}
+              \DataTypeTok{right_period =}\NormalTok{ right_period,}
+              \DataTypeTok{left_period =}\NormalTok{ left_period,}
+              \DataTypeTok{rt_censor =}\NormalTok{ rt_censor,}
+              \DataTypeTok{prop_right_cens =} \KeywordTok{sum}\NormalTok{(right_age }\OperatorTok{==}\StringTok{ }\NormalTok{nT_age)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(right_age)}
+\NormalTok{              )}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+The following code provides the full function that can be used to
+generate the age-period survival data. It is also provided in the R file
+S4\_age\_period\_survival\_generate\_data\_rselect.R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ageperiod_surv_sim_data_rselect <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() \{}
+
+  \CommentTok{# sample size of individuals}
+\NormalTok{  n <-}\StringTok{ }\DecValTok{1000}
+
+  \CommentTok{# intercept of the log hazard}
+\NormalTok{  beta0 <-}\StringTok{ }\OperatorTok{-}\DecValTok{4}
+
+\NormalTok{  ### maximum age interval}
+\NormalTok{  nT_age <-}\StringTok{ }\DecValTok{130}
+
+\NormalTok{  ### maximum period interval}
+\NormalTok{  nT_period <-}\StringTok{ }\DecValTok{130}
+
+\NormalTok{  #####################################################}
+\NormalTok{  ### Age at entry. np staggered entry}
+\NormalTok{  #####################################################}
+
+\NormalTok{  ### For the rselect simlation, all individuals enter at age 1}
+\NormalTok{  left_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{, n)}
+
+\NormalTok{  ###########################################}
+\NormalTok{  ### Staggered entry period effects}
+\NormalTok{  ###########################################}
+
+\NormalTok{  ### Staggered entry during the first 50 intervals}
+\NormalTok{  interval_entry <-}\StringTok{ }\DecValTok{50}
+\NormalTok{  left_period <-}\StringTok{ }\NormalTok{nimble}\OperatorTok{::}\KeywordTok{rcat}\NormalTok{(n, }\DataTypeTok{prob =} \KeywordTok{rep}\NormalTok{( }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{interval_entry, interval_entry))}
+
+\NormalTok{  ### The maximum age that an individual can be alive and in the study}
+\NormalTok{  ### must be calculated to restrict the right age during generation}
+\NormalTok{  maxtimes <-}\StringTok{ }\NormalTok{nT_period}\OperatorTok{-}\NormalTok{left_period}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Age effects for the log hazard}
+\NormalTok{  ### Baseline Weibull hazard of Age Effects}
+\NormalTok{  ########################################}
+
+\NormalTok{  lam <-.}\DecValTok{95}
+\NormalTok{  age <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{) }
+\NormalTok{  age_effect <-}\StringTok{ }\DecValTok{3} \OperatorTok{*}\StringTok{ }\NormalTok{lam }\OperatorTok{*}\StringTok{ }\NormalTok{age}\OperatorTok{^}\NormalTok{(}\OperatorTok{-}\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{lam))}
+
+  \CommentTok{#Inducing wiggles during the early age intervals}
+\NormalTok{  anthro <-}\StringTok{ }\NormalTok{.}\DecValTok{1} \OperatorTok{*}\StringTok{ }\KeywordTok{cos}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\DecValTok{8} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{age)}
+\NormalTok{  anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{50}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{] <-}\StringTok{ }\NormalTok{anthro[}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{] }\OperatorTok{*}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(}\DecValTok{51}\OperatorTok{:}\DecValTok{103}\NormalTok{))}
+\NormalTok{  anthro[}\DecValTok{103}\OperatorTok{:}\NormalTok{(nT_age}\OperatorTok{-}\DecValTok{1}\NormalTok{)] <-}\StringTok{ }\DecValTok{0}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{+}\StringTok{ }\NormalTok{anthro}
+\NormalTok{  age_effect <-}\StringTok{ }\NormalTok{age_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect)}
+
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Period effects for the log hazard}
+\NormalTok{  ########################################}
+
+\NormalTok{  period <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_period }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{, }\DataTypeTok{by =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{.}\DecValTok{5} \OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(}\DecValTok{5}\OperatorTok{/}\NormalTok{(}\DecValTok{120} \OperatorTok{*}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{period) }\OperatorTok{+}\StringTok{ }\DecValTok{5}\NormalTok{)}
+\NormalTok{  period_effect <-}\StringTok{ }\NormalTok{period_effect }\OperatorTok{-}\StringTok{ }\KeywordTok{mean}\NormalTok{(period_effect)}
+
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Log hazard}
+\NormalTok{  ########################################}
+
+\NormalTok{  hazard <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\OtherTok{NA}\NormalTok{, n, nT_age)}
+
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+\NormalTok{    hazard[i,] <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,left_age[i]}\OperatorTok{-}\DecValTok{1}\NormalTok{), beta0 }\OperatorTok{+}
+\StringTok{                      }\NormalTok{age_effect[left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)] }\OperatorTok{+}
+\StringTok{                      }\NormalTok{period_effect[left_period[i]}\OperatorTok{:}\NormalTok{(left_period[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)],}
+                      \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nT_age }\OperatorTok{-}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i])))}
+\NormalTok{  \}}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Probability of mortality}
+\NormalTok{  ########################################}
+
+\NormalTok{  test_stat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, n, nT_age)}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+      \ControlFlowTok{if}\NormalTok{ (j }\OperatorTok{==}\StringTok{ }\NormalTok{left_age[i]) \{}
+\NormalTok{        test_stat[i, j] <-}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j])))}
+\NormalTok{      \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{        test_stat[i, j] <-}
+\StringTok{           }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(hazard[i, j]))) }\OperatorTok{*}
+\StringTok{           }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(j }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{    test_stat[i, left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]] <-}
+\StringTok{            }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(}\KeywordTok{exp}\NormalTok{(hazard[i, left_age[i]}\OperatorTok{:}\NormalTok{(left_age[i]}
+            \OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)])))}
+\NormalTok{  \}}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Calculating right censoring}
+\NormalTok{  ########################################}
+\NormalTok{  fail_int <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  right_age <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+\NormalTok{  rt_censor <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, n)}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)\{}
+\NormalTok{    fail_int[i] <-}\StringTok{ }\KeywordTok{which}\NormalTok{(}\KeywordTok{rmultinom}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, test_stat[i, }\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]) }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    right_age[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{>=}\StringTok{ }\NormalTok{left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                          left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i],}
+\NormalTok{                          fail_int[i] }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    rt_censor[i] <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(fail_int[i] }\OperatorTok{<}\StringTok{ }\NormalTok{(left_age[i] }\OperatorTok{+}\StringTok{ }\NormalTok{maxtimes[i]), }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}
+
+\NormalTok{  right_period <-}\StringTok{ }\NormalTok{right_age }\OperatorTok{-}\StringTok{ }\NormalTok{left_age }\OperatorTok{+}\StringTok{ }\NormalTok{left_period}
+
+\NormalTok{  ########################################}
+\NormalTok{  ### Return values}
+\NormalTok{  ########################################}
+  
+  \KeywordTok{return}\NormalTok{(}\KeywordTok{list}\NormalTok{(}\DataTypeTok{n =}\NormalTok{ n,}
+              \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+              \DataTypeTok{nT_period =}\NormalTok{ nT_period,}
+              \DataTypeTok{beta0 =}\NormalTok{ beta0,}
+              \DataTypeTok{age_effect =}\NormalTok{ age_effect,}
+              \DataTypeTok{period_effect =}\NormalTok{ period_effect,}
+              \DataTypeTok{hazard =}\NormalTok{ hazard,}
+              \DataTypeTok{test_stat =}\NormalTok{ test_stat,}
+              \DataTypeTok{right_age =}\NormalTok{ right_age,}
+              \DataTypeTok{left_age =}\NormalTok{ left_age,}
+              \DataTypeTok{right_period =}\NormalTok{ right_period,}
+              \DataTypeTok{left_period =}\NormalTok{ left_period,}
+              \DataTypeTok{rt_censor =}\NormalTok{ rt_censor,}
+              \DataTypeTok{prop_right_cens =} \KeywordTok{sum}\NormalTok{(right_age }\OperatorTok{==}\StringTok{ }\NormalTok{nT_age)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(right_age)}
+\NormalTok{              )}
+\NormalTok{  )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Format data}\label{format-data}
+
+We set a seed so that results can be recovered (set.seed(10000)). When
+these simulations were run on the CHTC, we used seed from (10000,
+\ldots{}., 10099). We generated the data by sourcing the previous data
+generating functions. Then we set the true values of all parameters, and
+derived survival probabilities and hazards based on those true values
+returned from the data generating function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{10000}\NormalTok{)}
+
+\NormalTok{###simulating age period data}
+\KeywordTok{source}\NormalTok{(}\StringTok{"S4_01_age_period_survival_generate_data_kselect.R"}\NormalTok{)}
+\NormalTok{ageperiod_out<-}\KeywordTok{ageperiod_surv_sim_data_kselect}\NormalTok{()}
+
+\NormalTok{### Setting constants}
+\NormalTok{nT_age <-}\StringTok{ }\KeywordTok{max}\NormalTok{(ageperiod_out}\OperatorTok{$}\NormalTok{right_age)}\OperatorTok{-}\DecValTok{1}  \CommentTok{#ageperiod_out$nT_age-1}
+\NormalTok{nT_period <-}\StringTok{ }\KeywordTok{max}\NormalTok{(ageperiod_out}\OperatorTok{$}\NormalTok{right_period)}\OperatorTok{-}\DecValTok{1}  
+
+\NormalTok{### Setting true values for log hazard}
+\NormalTok{beta0_true <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{beta0}
+\NormalTok{age_effect_true <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{age_effect}
+\NormalTok{period_effect_true <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{period_effect}
+
+\CommentTok{#Initialize vectors for sub-calculations of Survival}
+\NormalTok{llambda_age_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_age)}
+\NormalTok{UCH0_age_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_age)}
+\NormalTok{S0_age_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_age)}
+
+\ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{  llambda_age_true[t] <-}\StringTok{ }\NormalTok{beta0_true }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect_true[t]}
+\NormalTok{  UCH0_age_true[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_age_true[t])}
+\NormalTok{  S0_age_true[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_age_true[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{\}}
+
+\CommentTok{#Initialize vectors for sub-calculations of Survival}
+\NormalTok{llambda_period_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_period)}
+\NormalTok{UCH0_period_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_period)}
+\NormalTok{S0_period_true <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\OtherTok{NA}\NormalTok{, nT_period)}
+
+\ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_period)\{}
+\NormalTok{  llambda_period_true[t] <-}\StringTok{ }\NormalTok{beta0_true }\OperatorTok{+}\StringTok{ }\NormalTok{period_effect_true[t] }\CommentTok{#female}
+\NormalTok{  UCH0_period_true[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_period_true[t])}
+\NormalTok{  S0_period_true[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_period_true[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{\}}
+
+\NormalTok{### Set data generated from the data generating function}
+\NormalTok{left_age <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{left_age}
+\NormalTok{right_age <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{right_age}
+\NormalTok{left_period <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{left_period}
+\NormalTok{right_period <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{right_period}
+\NormalTok{rt_censor <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{rt_censor}
+\NormalTok{n <-}\StringTok{ }\NormalTok{ageperiod_out}\OperatorTok{$}\NormalTok{n}
+\end{Highlighting}
+\end{Shaded}
+
+We structure the survival data such that each individual that dies
+during the study has 2 rows within the data frame, and individuals that
+are right censored or interval censored have 1 row in the data, where
+entry (left) and exit (right) for both age intervals and period
+intervals are specified. When individuals are alive and in the study,
+the censored variable is 1. Individuals that change state, through
+mortality, have censored equal to 0 for the second row of their entry.
+To align the age and period effects within the unit cumulative hazard
+calculation, i.e.~to align the indexes in the for loops for calculating
+the hazard, a vector aligning the ages to the dates must be calculated
+(age2date).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{### Formatting data for entering into the model}
+\NormalTok{base <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n) \{}
+  \ControlFlowTok{if}\NormalTok{ (rt_censor[i] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{) \{}
+\NormalTok{    temp1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(left_age[i],}
+\NormalTok{               right_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{,}
+               \DecValTok{1}\NormalTok{,}
+\NormalTok{               left_period[i],}
+\NormalTok{               right_period[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}
+\NormalTok{    temp2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(right_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{,}
+\NormalTok{               right_age[i],}
+               \DecValTok{0}\NormalTok{,}
+\NormalTok{               right_period[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{,}
+\NormalTok{               right_period[i])}
+    \ControlFlowTok{if}\NormalTok{ (left_age[i] }\OperatorTok{==}\StringTok{ }\NormalTok{(right_age[i] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+\NormalTok{      base <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(base, temp2)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      base <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(base, temp1, temp2)}
+\NormalTok{    \}}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    base <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(base,}\KeywordTok{c}\NormalTok{(left_age[i],}
+\NormalTok{                         right_age[i],}
+                         \DecValTok{1}\NormalTok{,}
+\NormalTok{                         left_period[i],}
+\NormalTok{                         right_period[i])) }
+\NormalTok{  \}}
+\NormalTok{\}}
+\NormalTok{base <-}\StringTok{ }\NormalTok{base[}\OperatorTok{-}\DecValTok{1}\NormalTok{,]}
+\KeywordTok{rownames}\NormalTok{(base) <-}\StringTok{ }\OtherTok{NULL}
+\KeywordTok{colnames}\NormalTok{(base) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"left_age"}\NormalTok{,}
+                    \StringTok{"right_age"}\NormalTok{,}
+                    \StringTok{"censored"}\NormalTok{,}
+                    \StringTok{"left_period"}\NormalTok{,}
+                    \StringTok{"right_period"}\NormalTok{)}
+\NormalTok{df_fit <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(base)}
+\NormalTok{n_fit <-}\StringTok{ }\KeywordTok{dim}\NormalTok{(df_fit)[}\DecValTok{1}\NormalTok{]}
+
+\NormalTok{### Create age to date conversion vector}
+\NormalTok{### This aligns the age/period intervals when }
+\NormalTok{### looping over the age and period hazards}
+\NormalTok{age2date <-}\StringTok{ }\NormalTok{df_fit}\OperatorTok{$}\NormalTok{left_age }\OperatorTok{-}\StringTok{ }\NormalTok{df_fit}\OperatorTok{$}\NormalTok{left_period}
+\end{Highlighting}
+\end{Shaded}
+
+The data formatting for both the R-select and K-select species is
+identical, except that the function that is sourced and executed for
+generating data should be swapped out. Consequently, we have only
+described the data formatting here once. We have provided full code for
+formatting both simulations in S4\_02\_format\_data\_kselect.R and
+S4\_02\_format\_data\_rselect.R. These files are sourced in the calls to
+the model fitting R scripts for the simulations.
+
+\subsection{Calculating model preliminaries and
+constants}\label{calculating-model-preliminaries-and-constants}
+
+Once the data are properly formatted, we must calculate the basis
+functions and other constants needed to run each model. However, the
+basis function calculation and calculation of constants is model
+dependent. Here we will describe extensively the process for calculating
+the basis function for the model that uses a kernel basis function for
+period effects, along with the additive combination of constrained
+generalized additive models with natural splines for the kselect
+simulation (CSL-K). The code for each of the model variants is provided
+based on the same model identifier as in Table 1 in the manuscript. The
+model specific basis functions are denoted in the file names.
+
+\subsubsection{K-select simulation model fitting
+(CSL-K)}\label{k-select-simulation-model-fitting-csl-k}
+
+First we source the data generating function and the data formatting R
+code. Note that the uncommented R scripts are for the R-select
+simulation data generating
+(S4\_01\_age\_period\_survival\_generate\_data\_kselect.R) and data
+formatting (S4\_02\_format\_data\_kselect.R).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source}\NormalTok{(}\StringTok{"../S4_01_age_period_survival_generate_data_kselect.R"}\NormalTok{)}
+\CommentTok{# source("../S4_01_age_period_survival_generate_data_rselect.R")}
+
+\NormalTok{########################################################}
+\NormalTok{### Generate the data and format to run in models}
+\NormalTok{########################################################}
+
+\KeywordTok{source}\NormalTok{(}\StringTok{"../S4_02_format_data_kselect.R"}\NormalTok{)}
+\CommentTok{# source("../S4_02_format_data_rselect.R")}
+\end{Highlighting}
+\end{Shaded}
+
+Then we provide a nimble function that can be used to calculate the
+kernel convolution process. We constrained the kernel convolutions to
+sum to 1, so the kernel is calculated by dividing by it's sum. The
+parameters of this function include the distance matrix (Z), the square
+root of the smoothing parameter, or precision, for the kernel (stauk), a
+constant (nconst) that is simply the inverse of the square root of
+\(2 \times \pi\), the precision of the kernel (tauk), the number of
+knots (nknots), and the white noise process (alphau).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kernel_conv <-}\StringTok{ }\KeywordTok{nimbleFunction}\NormalTok{(}
+  \DataTypeTok{run =} \ControlFlowTok{function}\NormalTok{(}\DataTypeTok{nT =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{Z =} \KeywordTok{double}\NormalTok{(}\DecValTok{2}\NormalTok{),}
+                 \DataTypeTok{stauk =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{nconst =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{tauk =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{nknots =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{alphau =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{  )\{}
+\NormalTok{    temp <-}\StringTok{ }\KeywordTok{nimMatrix}\NormalTok{(}\DataTypeTok{value =} \DecValTok{0}\NormalTok{,}\DataTypeTok{nrow =}\NormalTok{ nT, }\DataTypeTok{ncol =}\NormalTok{ nknots)}
+\NormalTok{    temp1 <-}\StringTok{ }\KeywordTok{nimMatrix}\NormalTok{(}\DataTypeTok{value =} \DecValTok{0}\NormalTok{,}\DataTypeTok{nrow =}\NormalTok{ nT, }\DataTypeTok{ncol =}\NormalTok{ nknots)}
+\NormalTok{    temp2 <-}\StringTok{ }\KeywordTok{nimNumeric}\NormalTok{(nknots)}
+\NormalTok{    KA <-}\StringTok{ }\KeywordTok{nimNumeric}\NormalTok{(nT)}
+
+    \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT) \{}
+      \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots) \{}
+\NormalTok{        temp1[i, j] <-}\StringTok{ }\NormalTok{stauk }\OperatorTok{*}\StringTok{ }\NormalTok{nconst }\OperatorTok{*}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\FloatTok{0.5} \OperatorTok{*}\StringTok{ }\NormalTok{Z[i, j]}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{tauk)}
+\NormalTok{      \}}
+\NormalTok{    \}}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots) \{}
+\NormalTok{      temp2[j] <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(temp1[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT, j])}
+\NormalTok{    \}}
+    \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT) \{}
+      \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots) \{}
+\NormalTok{        temp[i,j] <-}\StringTok{ }\NormalTok{(temp1[i, j] }\OperatorTok{/}\StringTok{ }\NormalTok{temp2[j]) }\OperatorTok{*}\StringTok{ }\NormalTok{alphau[j]}
+\NormalTok{      \}}
+\NormalTok{      KA[i] <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(temp[i, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots])}
+\NormalTok{    \}}
+
+\NormalTok{    muKA <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(KA[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT])}
+\NormalTok{    KA[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT] <-}\StringTok{ }\NormalTok{KA[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT] }\OperatorTok{-}\StringTok{ }\NormalTok{muKA}
+
+    \KeywordTok{returnType}\NormalTok{(}\KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{))}
+    \KeywordTok{return}\NormalTok{(KA[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT])}
+\NormalTok{  \})}
+
+\NormalTok{ckernel_conv <-}\StringTok{ }\KeywordTok{compileNimble}\NormalTok{(kernel_conv)}
+\end{Highlighting}
+\end{Shaded}
+
+Next, we provide the function that is used to calculate the basis
+function for the constrained generalized additive model (cgam) that is
+taken from Meyer et al (2008) and the bcgam R package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{convex <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, t, }\DataTypeTok{pred.new=}\OtherTok{TRUE}\NormalTok{) \{}
+\NormalTok{  n =}\StringTok{ }\KeywordTok{length}\NormalTok{(x)}
+\NormalTok{  k =}\StringTok{ }\KeywordTok{length}\NormalTok{(t)}\OperatorTok{-}\DecValTok{2}
+\NormalTok{  m =}\StringTok{ }\NormalTok{k }\OperatorTok{+}\StringTok{ }\DecValTok{2}
+\NormalTok{  sigma =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{m}\OperatorTok{*}\NormalTok{n, }\DataTypeTok{nrow =}\NormalTok{ m, }\DataTypeTok{ncol =}\NormalTok{ n)}
+  \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{(k}\OperatorTok{-}\DecValTok{1}\NormalTok{))\{}
+\NormalTok{    i1=x}\OperatorTok{<=}\NormalTok{t[j]}
+\NormalTok{    sigma[j,i1] =}\StringTok{ }\DecValTok{0}
+\NormalTok{    i2=x}\OperatorTok{>}\NormalTok{t[j]}\OperatorTok{&}\NormalTok{x}\OperatorTok{<=}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{    sigma[j,i2] =}\StringTok{ }\NormalTok{(x[i2]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{^}\DecValTok{3} \OperatorTok{/}\StringTok{ }\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j]) }\OperatorTok{/}\StringTok{ }\NormalTok{(t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{/}\DecValTok{3}
+\NormalTok{    i3=x}\OperatorTok{>}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{&}\NormalTok{x}\OperatorTok{<=}\NormalTok{t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}
+\NormalTok{    sigma[j,i3] =}\StringTok{ }\NormalTok{x[i3]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{(x[i3]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{])}\OperatorTok{^}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\DecValTok{3}\OperatorTok{+}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{-}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}
+\NormalTok{    i4=x}\OperatorTok{>}\NormalTok{t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}
+\NormalTok{    sigma[j,i4]=(x[i4]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{+}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}\OperatorTok{-}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[j}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[j])}
+\NormalTok{  \}}
+\NormalTok{  i1=x}\OperatorTok{<=}\NormalTok{t[k]}
+\NormalTok{  sigma[k,i1] =}\StringTok{ }\DecValTok{0}
+\NormalTok{  i2=x}\OperatorTok{>}\NormalTok{t[k]}\OperatorTok{&}\NormalTok{x}\OperatorTok{<=}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{  sigma[k,i2] =}\StringTok{ }\NormalTok{(x[i2]}\OperatorTok{-}\NormalTok{t[k])}\OperatorTok{^}\DecValTok{3} \OperatorTok{/}\StringTok{ }\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k]) }\OperatorTok{/}\StringTok{ }\NormalTok{(t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k])}\OperatorTok{/}\DecValTok{3}
+\NormalTok{  i3=x}\OperatorTok{>}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{  sigma[k,i3] =}\StringTok{ }\NormalTok{x[i3]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{(x[i3]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{])}\OperatorTok{^}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k])}\OperatorTok{/}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\DecValTok{3}\OperatorTok{+}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k])}\OperatorTok{-}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k])}
+\NormalTok{  i1=x}\OperatorTok{<=}\NormalTok{t[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  sigma[k}\OperatorTok{+}\DecValTok{1}\NormalTok{,i1]=x[i1]}\OperatorTok{-}\NormalTok{t[}\DecValTok{1}\NormalTok{]}\OperatorTok{+}\NormalTok{(t[}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{x[i1])}\OperatorTok{^}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}
+\NormalTok{  i2=x}\OperatorTok{>}\NormalTok{t[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  sigma[k}\OperatorTok{+}\DecValTok{1}\NormalTok{,i2]=x[i2]}\OperatorTok{-}\NormalTok{t[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  i1=x}\OperatorTok{<=}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{  sigma[k}\OperatorTok{+}\DecValTok{2}\NormalTok{,i1]=}\DecValTok{0}
+\NormalTok{  i2=x}\OperatorTok{>}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{]}
+\NormalTok{  sigma[k}\OperatorTok{+}\DecValTok{2}\NormalTok{,i2]=(x[i2]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{3}\OperatorTok{/}\NormalTok{(t[k}\OperatorTok{+}\DecValTok{2}\NormalTok{]}\OperatorTok{-}\NormalTok{t[k}\OperatorTok{+}\DecValTok{1}\NormalTok{])}\OperatorTok{^}\DecValTok{2}\OperatorTok{/}\DecValTok{3}
+  
+\NormalTok{  v1=}\DecValTok{1}\OperatorTok{:}\NormalTok{n}\OperatorTok{*}\DecValTok{0}\OperatorTok{+}\DecValTok{1}
+\NormalTok{  v2=x}
+\NormalTok{  x.mat=}\KeywordTok{cbind}\NormalTok{(v1,v2)}
+  
+  \ControlFlowTok{if}\NormalTok{(pred.new}\OperatorTok{==}\OtherTok{TRUE}\NormalTok{)\{}
+    \KeywordTok{list}\NormalTok{(}\DataTypeTok{sigma=}\NormalTok{sigma,}\DataTypeTok{x.mat=}\NormalTok{x.mat)\}}
+  
+  \ControlFlowTok{else}\NormalTok{\{}
+    \ControlFlowTok{if}\NormalTok{(pred.new}\OperatorTok{==}\OtherTok{FALSE}\NormalTok{)\{}
+\NormalTok{      coef=}\KeywordTok{solve}\NormalTok{(}\KeywordTok{t}\NormalTok{(x.mat)}\OperatorTok{%*%}\NormalTok{x.mat)}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(x.mat)}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(sigma)}
+      \KeywordTok{list}\NormalTok{(}\DataTypeTok{sigma=}\NormalTok{sigma, }\DataTypeTok{x.mat=}\NormalTok{x.mat, }\DataTypeTok{center.vector=}\NormalTok{coef)\}}
+\NormalTok{  \}}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+For the cgam basis, we specify 6 knots using quantiles of the right\_age
+vector. Using the above convex function, we calculate the basis function
+for the age effects so that they are neither decreasing nor increasing.
+We re-scaled the basis function by dividing the function values by the
+maximum value to aid in convergence.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{quant_age <-}\StringTok{ }\NormalTok{.}\DecValTok{25}
+
+\NormalTok{knots_age <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}
+              \KeywordTok{round}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(df.fit}\OperatorTok{$}\NormalTok{right_age }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{,}
+                             \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(quant_age, .}\DecValTok{99}\NormalTok{, }\DataTypeTok{by =}\NormalTok{ quant_age), .}\DecValTok{99}\NormalTok{))))}
+\NormalTok{knots_age <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(knots_age)}
+
+\NormalTok{delta_i <-}\StringTok{ }\KeywordTok{convex}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age,knots_age, }\DataTypeTok{pred.new=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{delta <-}\StringTok{ }\KeywordTok{t}\NormalTok{(}\KeywordTok{rbind}\NormalTok{(delta_i}\OperatorTok{$}\NormalTok{sigma }\OperatorTok{-}\StringTok{ }\KeywordTok{t}\NormalTok{(delta_i}\OperatorTok{$}\NormalTok{x.mat }\OperatorTok{%*%}\StringTok{ }\NormalTok{delta_i}\OperatorTok{$}\NormalTok{center.vector)))}
+\NormalTok{delta <-}\StringTok{ }\NormalTok{delta }\OperatorTok{/}\StringTok{ }\KeywordTok{max}\NormalTok{(delta)}
+
+\NormalTok{Z_age_cgam <-}\StringTok{ }\NormalTok{delta}
+\NormalTok{nknots_age_cgam <-}\StringTok{ }\KeywordTok{dim}\NormalTok{(Z_age_cgam)[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Next, we calculate the basis function for the natural spline for the age
+effects. First we set knots based on the quantiles of the right\_age
+vector such that there are at least 20 knots. Then we calculate the
+natural spline basis from the splines R package function. Then we use QR
+factorization to obtain the null space of the spline basis, so that we
+can impose the sum to zero constraint for the age effects.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{### Knots}
+\NormalTok{quant_age <-}\StringTok{ }\NormalTok{.}\DecValTok{05}
+\NormalTok{knots_age_spline <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}
+                     \KeywordTok{round}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(df.fit}\OperatorTok{$}\NormalTok{right_age}\OperatorTok{-}\DecValTok{1}\NormalTok{, }
+                                   \KeywordTok{c}\NormalTok{(}\KeywordTok{seq}\NormalTok{(quant_age,.}\DecValTok{99}\NormalTok{, }\DataTypeTok{by=}\NormalTok{quant_age),}
+\NormalTok{                                   .}\DecValTok{99}\NormalTok{))))}
+\NormalTok{knots_age_spline <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(knots_age_spline)}
+\NormalTok{nknots_age_spline <-}\StringTok{ }\KeywordTok{length}\NormalTok{(knots_age_spline)}
+
+\NormalTok{### Basis for age hazard}
+\NormalTok{splinebasis <-}\StringTok{ }\KeywordTok{ns}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age, }\DataTypeTok{knots =}\NormalTok{ knots_age_spline)}
+
+\NormalTok{### A constraint matrix so period_effects == 0}
+\NormalTok{constr_sumzero <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\KeywordTok{nrow}\NormalTok{(splinebasis)) }\OperatorTok{%*%}\StringTok{ }\NormalTok{splinebasis}
+
+\NormalTok{### QR factorization for null space of constraint}
+\NormalTok{qrc <-}\StringTok{ }\KeywordTok{qr}\NormalTok{(}\KeywordTok{t}\NormalTok{(constr_sumzero))}
+\NormalTok{Z <-}\StringTok{ }\KeywordTok{qr.Q}\NormalTok{(qrc,}
+          \DataTypeTok{complete =} \OtherTok{TRUE}\NormalTok{)[, (}\KeywordTok{nrow}\NormalTok{(constr_sumzero) }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(constr_sumzero)]}
+\NormalTok{Z_age_spline <-}\StringTok{ }\NormalTok{splinebasis }\OperatorTok{%*%}\StringTok{ }\NormalTok{Z}
+\NormalTok{nknots_age_spline <-}\StringTok{ }\KeywordTok{dim}\NormalTok{(Z_age_spline)[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+We plot the basis functions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"figures/basis_function_age.pdf"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age,}
+\NormalTok{     Z_age_spline[, }\DecValTok{1}\NormalTok{],}
+     \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+     \DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
+     \DataTypeTok{main =} \StringTok{"Basis Function Age Effect Spline"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\NormalTok{nknots_age_spline) \{}
+  \KeywordTok{lines}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age, Z_age_spline[, i])}
+\NormalTok{\}}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age,}
+\NormalTok{     Z_age_cgam[, }\DecValTok{1}\NormalTok{],}
+     \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+     \DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
+     \DataTypeTok{main =} \StringTok{"Basis Function Age Effect CGAM"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{2}\OperatorTok{:}\NormalTok{nknots_age_cgam) \{}
+  \KeywordTok{lines}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age, Z_age_cgam[, i])}
+\NormalTok{\}}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+The we calculate the basis expansion for the period effects for the
+kernel convolution process. First we set the knots, where we used dense
+equal space knots on each period interval. Then the basis function is
+just the absolute value of the distance between each period and the
+neighboring periods.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{intvl_period <-}\StringTok{ }\DecValTok{1}
+\NormalTok{knots_period <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, nT_period, }\DataTypeTok{by =}\NormalTok{ intvl_period)}
+\NormalTok{knots_period <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(knots_period)}
+\NormalTok{nknots_period <-}\StringTok{ }\KeywordTok{length}\NormalTok{(knots_period)}
+
+\NormalTok{Z_period <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{, nT_period, nknots_period)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{nrow}\NormalTok{(Z_period)) \{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots_period) \{}
+\NormalTok{    Z_period[i, j] <-}\StringTok{ }\KeywordTok{abs}\NormalTok{(i }\OperatorTok{-}\StringTok{ }\NormalTok{knots_period[j])}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Lastly, we specify the number of Markov chain Monte-Carlo iterations
+(reps), the burn-in (bin), the number of MCMC chains (n\_chains), and
+the thinning interval (n\_thin).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reps <-}\StringTok{ }\DecValTok{50000}
+\NormalTok{bin <-}\StringTok{ }\NormalTok{reps }\OperatorTok{*}\StringTok{ }\NormalTok{.}\DecValTok{5}
+\NormalTok{n_chains <-}\StringTok{ }\DecValTok{3}
+\NormalTok{n_thin <-}\StringTok{ }\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+The full preliminary function to run all of these basis function
+calculations is provided in
+S4\_03\_prelim\_constants\_kselect\_CSL\_K.R.
+
+\subsection{Run the model using the NIMBLE
+package}\label{run-the-model-using-the-nimble-package}
+
+We provide a function that can calculate the probability of a mortality
+for each individual across the intervals (age and period) that the
+individual is collared and alive in the study. The function is based on
+indexing over the age effects (age\_effect), and uses the age2date
+vector to calculate the proper index for the period intervals
+(period\_effect). The intercept (beta0) is added to the log hazard. The
+summation from left to right provides the approximation of the
+integration of the log hazard for obtaining the cumulative probability
+of survival during each age interval and each period interval.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{state_transition <-}\StringTok{ }\KeywordTok{nimbleFunction}\NormalTok{(}
+  \DataTypeTok{run =} \ControlFlowTok{function}\NormalTok{(}\DataTypeTok{records =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{),}
+                 \DataTypeTok{left =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{),}
+                 \DataTypeTok{right =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{),}
+                 \DataTypeTok{beta0 =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+                 \DataTypeTok{age_effect =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{),}
+                 \DataTypeTok{period_effect =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{),}
+                 \DataTypeTok{age2date =} \KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{),}
+                 \DataTypeTok{nT_age =} \KeywordTok{double}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\NormalTok{  )\{}
+
+\NormalTok{    SLR <-}\StringTok{ }\KeywordTok{nimNumeric}\NormalTok{(records)}
+\NormalTok{    UCH <-}\KeywordTok{nimMatrix}\NormalTok{(}\DataTypeTok{value =} \DecValTok{0}\NormalTok{,}\DataTypeTok{nrow =}\NormalTok{ records, }\DataTypeTok{ncol =}\NormalTok{ nT_age)}
+    \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{records) \{}
+      \ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in}\NormalTok{ left[j]}\OperatorTok{:}\NormalTok{(right[j] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)) \{}
+\NormalTok{        UCH[j, k] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(beta0 }\OperatorTok{+}
+\StringTok{                         }\NormalTok{age_effect[k] }\OperatorTok{+}
+\StringTok{                         }\NormalTok{period_effect[k }\OperatorTok{-}\StringTok{ }\NormalTok{age2date[j]])}
+\NormalTok{      \}}
+\NormalTok{      SLR[j] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH[j, left[j]}\OperatorTok{:}\NormalTok{(right[j] }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)]))}
+\NormalTok{    \}}
+    \KeywordTok{returnType}\NormalTok{(}\KeywordTok{double}\NormalTok{(}\DecValTok{1}\NormalTok{))}
+    \KeywordTok{return}\NormalTok{(SLR[}\DecValTok{1}\OperatorTok{:}\NormalTok{records])}
+\NormalTok{  \})}
+
+\NormalTok{cstate_transition <-}\StringTok{ }\KeywordTok{compileNimble}\NormalTok{(state_transition)}
+\end{Highlighting}
+\end{Shaded}
+
+Then we specify the model statement using the NIMBLE syntax, which is
+based on declarative BUGS code. We specify the prior distribution for
+the intercept (beta0) using parameter expansion.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  beta0_temp }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{01}\NormalTok{)}
+\NormalTok{  mix }\OperatorTok{~}\StringTok{ }\KeywordTok{dunif}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  beta0 <-}\StringTok{ }\NormalTok{beta0_temp }\OperatorTok{*}\StringTok{ }\NormalTok{mix}
+\end{Highlighting}
+\end{Shaded}
+
+Then we specify the prior distribution for the effects for the cgam
+model, and calculate the age effects. We centered the age effects for
+the cgam model by subtracting the mean of the age effects and then used
+the sum-to-zero age effects. We could not use QR factorization to obtain
+the null space of the basis function when calculating the basis
+function, because this mapped the basis functions that prevented the
+non-negative constraint for the coefficients to ensure the concave
+shape.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam) \{}
+\NormalTok{    ln_b_age_cgam[k] }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, tau_age_cgam)}
+\NormalTok{    b_age_cgam[k] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(ln_b_age_cgam[k])}
+\NormalTok{  \}}
+\NormalTok{  tau_age_cgam }\OperatorTok{~}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    age_effect_temp[t] <-}\StringTok{ }\KeywordTok{inprod}\NormalTok{(b_age_cgam[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam],}
+\NormalTok{                                 Z_age_cgam[t, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam])}
+\NormalTok{    age_effect_cgam[t] <-}\StringTok{ }\NormalTok{age_effect_temp[t] }\OperatorTok{-}\StringTok{ }\NormalTok{mu_age_cgam}
+\NormalTok{  \}}
+\NormalTok{  mu_age_cgam <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect_temp[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age])}
+\end{Highlighting}
+\end{Shaded}
+
+The prior for spline model was specified using the double exponential,
+or Laplace prior rather than a normal prior distribution. The QR
+factorization that was implemented on the basis function ensures these
+effects are summing to zero. We combined the cgam and spline models by
+adding them.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline) \{}
+\NormalTok{    b_age_spline[k] }\OperatorTok{~}\StringTok{ }\KeywordTok{ddexp}\NormalTok{(}\DecValTok{0}\NormalTok{, tau_age_spline)}
+\NormalTok{  \}}
+\NormalTok{  tau_age_spline }\OperatorTok{~}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(.}\DecValTok{01}\NormalTok{, .}\DecValTok{01}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    age_effect_spline[t] <-}\StringTok{ }\KeywordTok{inprod}\NormalTok{(b_age_spline[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline],}
+\NormalTok{                                   Z_age_spline[t, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline])}
+\NormalTok{  \}}
+
+\NormalTok{  ########################}
+\NormalTok{  ### Age effect combine}
+\NormalTok{  ########################}
+
+\NormalTok{  age_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age] <-}\StringTok{ }\NormalTok{age_effect_cgam[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age] }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect_spline[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]}
+\end{Highlighting}
+\end{Shaded}
+
+We calculate the period effects using the kernel convolution function
+provided earlier (period\_effect). We specify the prior for the kernel
+smoother on the log scale (ln\_sk\_period), along with a parameter
+expansion mixing parameter to aid in mixing (mix2). We generate the
+Gaussian white noise process (alphau\_period) by generating the standard
+normal (alpha\_period) and then multiply this by the standard deviation
+(sda\_period) that has a truncated normal prior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  mix2 }\OperatorTok{~}\StringTok{ }\KeywordTok{dunif}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  ln_sk_period }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  sdk_period <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(mix2 }\OperatorTok{*}\StringTok{ }\NormalTok{ln_sk_period)}
+\NormalTok{  tauk_period <-}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sdk_period}\OperatorTok{^}\DecValTok{2}
+\NormalTok{  stauk_period <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(tauk_period)}
+\NormalTok{  sda_period }\OperatorTok{~}\StringTok{ }\KeywordTok{T}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{),}\DecValTok{0}\NormalTok{, }\OtherTok{Inf}\NormalTok{)}
+\NormalTok{  taua_period <-}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sda_period}\OperatorTok{^}\DecValTok{2}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{(nknots_period)) \{}
+\NormalTok{    alpha_period[i] }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{    alphau_period[i] <-}\StringTok{ }\NormalTok{sda_period }\OperatorTok{*}\StringTok{ }\NormalTok{alpha_period[i]}
+\NormalTok{  \}}
+\NormalTok{  ratioinf_period <-}\StringTok{ }\NormalTok{sdk_period }\OperatorTok{/}\StringTok{ }\NormalTok{sda_period }\CommentTok{#ratio of variability/smoothing}
+
+\NormalTok{  period_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period] <-}\StringTok{ }\KeywordTok{kernel.conv}\NormalTok{(}
+    \DataTypeTok{nT =}\NormalTok{ nT_period,}
+    \DataTypeTok{Z =}\NormalTok{ Z_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_period],}
+    \DataTypeTok{stauk =}\NormalTok{ stauk_period,}
+    \DataTypeTok{nconst =}\NormalTok{ nconst,}
+    \DataTypeTok{tauk =}\NormalTok{ tauk_period,}
+    \DataTypeTok{nknots =}\NormalTok{ nknots_period,}
+    \DataTypeTok{alphau =}\NormalTok{ alphau_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_period]}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+Then we compute the cumulative probability of mortality within each
+period using the state\_transition function. The likelihood is just a
+Bernoulli distribution for each individual given whether they are alive
+and in the study (censor=1), or whether they have died (censor=0).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  SLR[}\DecValTok{1}\OperatorTok{:}\NormalTok{records] <-}\StringTok{ }\KeywordTok{state_transition}\NormalTok{(}\DataTypeTok{records =}\NormalTok{ records,}
+                                   \DataTypeTok{left =}\NormalTok{ left_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{right =}\NormalTok{ right_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+                                   \DataTypeTok{age_effect =}\NormalTok{ age_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age],}
+                                   \DataTypeTok{period_effect =}\NormalTok{ period_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period],}
+                                   \DataTypeTok{age2date =}\NormalTok{ age2date[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{beta0 =}\NormalTok{ beta0)}
+
+\NormalTok{  ###}
+\NormalTok{  ### Likelihood}
+\NormalTok{  ###}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{records) \{}
+\NormalTok{    censor[j] }\OperatorTok{~}\StringTok{ }\KeywordTok{dbern}\NormalTok{(SLR[j])}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+We calculate derived parameters consisting of the cumulative probability
+of survival over the age intervals and period intervals separately.
+These could be calculated differently, where the could be combined by
+adding over specific intervals, or a full survival surface could also be
+calculated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    llambda_age[t] <-}\StringTok{ }\NormalTok{beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect[t]}
+\NormalTok{    UCH0_age[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_age[t])}
+\NormalTok{    S0_age[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{  \}}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_period) \{}
+\NormalTok{    llambda_period[t] <-}\StringTok{ }\NormalTok{beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{period_effect[t]}
+\NormalTok{    UCH0_period[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_period[t])}
+\NormalTok{    S0_period[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+We put this altogether in the modelcode statement.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelcode <-}\StringTok{ }\KeywordTok{nimbleCode}\NormalTok{(\{}
+\NormalTok{  ### Prior for intercept}
+\NormalTok{  ### using parameter expansion for convergence}
+\NormalTok{  beta0_temp }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, .}\DecValTok{01}\NormalTok{)}
+\NormalTok{  mix }\OperatorTok{~}\StringTok{ }\KeywordTok{dunif}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  beta0 <-}\StringTok{ }\NormalTok{beta0_temp }\OperatorTok{*}\StringTok{ }\NormalTok{mix}
+
+\NormalTok{  #####################}
+\NormalTok{  ### Age effect cgam}
+\NormalTok{  #####################}
+
+  \ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam) \{}
+\NormalTok{    ln_b_age_cgam[k] }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, tau_age_cgam)}
+\NormalTok{    b_age_cgam[k] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(ln_b_age_cgam[k])}
+\NormalTok{  \}}
+\NormalTok{  tau_age_cgam }\OperatorTok{~}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    age_effect_temp[t] <-}\StringTok{ }\KeywordTok{inprod}\NormalTok{(b_age_cgam[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam],}
+\NormalTok{                                 Z_age_cgam[t, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_cgam])}
+\NormalTok{    age_effect_cgam[t] <-}\StringTok{ }\NormalTok{age_effect_temp[t] }\OperatorTok{-}\StringTok{ }\NormalTok{mu_age_cgam}
+\NormalTok{  \}}
+\NormalTok{  mu_age_cgam <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(age_effect_temp[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age])}
+
+\NormalTok{  #####################}
+\NormalTok{  ### Age effect spline}
+\NormalTok{  #####################}
+
+  \ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline) \{}
+\NormalTok{    b_age_spline[k] }\OperatorTok{~}\StringTok{ }\KeywordTok{ddexp}\NormalTok{(}\DecValTok{0}\NormalTok{, tau_age_spline)}
+\NormalTok{  \}}
+\NormalTok{  tau_age_spline }\OperatorTok{~}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(.}\DecValTok{01}\NormalTok{, .}\DecValTok{01}\NormalTok{)}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    age_effect_spline[t] <-}\StringTok{ }\KeywordTok{inprod}\NormalTok{(b_age_spline[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline],}
+\NormalTok{                                   Z_age_spline[t, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_age_spline])}
+\NormalTok{  \}}
+
+\NormalTok{  ########################}
+\NormalTok{  ### Age effect combine}
+\NormalTok{  ########################}
+
+\NormalTok{  age_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age] <-}\StringTok{ }\NormalTok{age_effect_cgam[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age] }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect_spline[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age]}
+
+\NormalTok{  #####################################}
+\NormalTok{  ### Period effect kernel convolution}
+\NormalTok{  #####################################}
+
+\NormalTok{  mix2 }\OperatorTok{~}\StringTok{ }\KeywordTok{dunif}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{  ln_sk_period }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{)}
+\NormalTok{  sdk_period <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(mix2 }\OperatorTok{*}\StringTok{ }\NormalTok{ln_sk_period)}
+\NormalTok{  tauk_period <-}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sdk_period}\OperatorTok{^}\DecValTok{2}
+\NormalTok{  stauk_period <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(tauk_period)}
+\NormalTok{  sda_period }\OperatorTok{~}\StringTok{ }\KeywordTok{T}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{),}\DecValTok{0}\NormalTok{, }\OtherTok{Inf}\NormalTok{)}
+\NormalTok{  taua_period <-}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sda_period}\OperatorTok{^}\DecValTok{2}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{(nknots_period)) \{}
+\NormalTok{    alpha_period[i] }\OperatorTok{~}\StringTok{ }\KeywordTok{dnorm}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{    alphau_period[i] <-}\StringTok{ }\NormalTok{sda_period }\OperatorTok{*}\StringTok{ }\NormalTok{alpha_period[i]}
+\NormalTok{  \}}
+\NormalTok{  ratioinf_period <-}\StringTok{ }\NormalTok{sdk_period }\OperatorTok{/}\StringTok{ }\NormalTok{sda_period }\CommentTok{#ratio of variability/smoothing}
+
+\NormalTok{  period_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period] <-}\StringTok{ }\KeywordTok{kernel.conv}\NormalTok{(}
+    \DataTypeTok{nT =}\NormalTok{ nT_period,}
+    \DataTypeTok{Z =}\NormalTok{ Z_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period, }\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_period],}
+    \DataTypeTok{stauk =}\NormalTok{ stauk_period,}
+    \DataTypeTok{nconst =}\NormalTok{ nconst,}
+    \DataTypeTok{tauk =}\NormalTok{ tauk_period,}
+    \DataTypeTok{nknots =}\NormalTok{ nknots_period,}
+    \DataTypeTok{alphau =}\NormalTok{ alphau_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{nknots_period]}
+\NormalTok{  )}
+
+\NormalTok{  ###}
+\NormalTok{  ### Computing state transition probability}
+\NormalTok{  ###}
+
+\NormalTok{  SLR[}\DecValTok{1}\OperatorTok{:}\NormalTok{records] <-}\StringTok{ }\KeywordTok{state_transition}\NormalTok{(}\DataTypeTok{records =}\NormalTok{ records,}
+                                   \DataTypeTok{left =}\NormalTok{ left_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{right =}\NormalTok{ right_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+                                   \DataTypeTok{age_effect =}\NormalTok{ age_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_age],}
+                                   \DataTypeTok{period_effect =}\NormalTok{ period_effect[}\DecValTok{1}\OperatorTok{:}\NormalTok{nT_period],}
+                                   \DataTypeTok{age2date =}\NormalTok{ age2date[}\DecValTok{1}\OperatorTok{:}\NormalTok{records],}
+                                   \DataTypeTok{beta0 =}\NormalTok{ beta0)}
+
+\NormalTok{  ###}
+\NormalTok{  ### Likelihood}
+\NormalTok{  ###}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{records) \{}
+\NormalTok{    censor[j] }\OperatorTok{~}\StringTok{ }\KeywordTok{dbern}\NormalTok{(SLR[j])}
+\NormalTok{  \}}
+
+\NormalTok{  ##########################}
+\NormalTok{  ### Derived parameters}
+\NormalTok{  ##########################}
+
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_age) \{}
+\NormalTok{    llambda_age[t] <-}\StringTok{ }\NormalTok{beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{age_effect[t]}
+\NormalTok{    UCH0_age[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_age[t])}
+\NormalTok{    S0_age[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_age[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{  \}}
+  \ControlFlowTok{for}\NormalTok{ (t }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nT_period) \{}
+\NormalTok{    llambda_period[t] <-}\StringTok{ }\NormalTok{beta0 }\OperatorTok{+}\StringTok{ }\NormalTok{period_effect[t]}
+\NormalTok{    UCH0_period[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(llambda_period[t])}
+\NormalTok{    S0_period[t] <-}\StringTok{ }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{sum}\NormalTok{(UCH0_period[}\DecValTok{1}\OperatorTok{:}\NormalTok{t]))}
+\NormalTok{  \}}
+
+\NormalTok{\})}\CommentTok{#end model statement}
+\end{Highlighting}
+\end{Shaded}
+
+We specify data, constants and initial values for all of the parameters
+in the model.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{###Data}
+\NormalTok{nimData <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{censor =}\NormalTok{ df_fit[, }\DecValTok{3}\NormalTok{],}
+                \DataTypeTok{Z_period =}\NormalTok{ Z_period,}
+                \DataTypeTok{Z_age_cgam =}\NormalTok{ Z_age_cgam,}
+                \DataTypeTok{Z_age_spline =}\NormalTok{ Z_age_spline,}
+                \DataTypeTok{left_age =}\NormalTok{ df_fit[, }\DecValTok{1}\NormalTok{],}
+                \DataTypeTok{right_age =}\NormalTok{ df_fit[, }\DecValTok{2}\NormalTok{],}
+                \DataTypeTok{age2date =}\NormalTok{ age2date}
+\NormalTok{                )}
+\NormalTok{###Constants}
+\NormalTok{nimConsts <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{records =}\NormalTok{ n_fit,}
+                 \DataTypeTok{nT_age =}\NormalTok{ nT_age,}
+                 \DataTypeTok{nT_period =}\NormalTok{ nT_period,}
+                 \DataTypeTok{nknots_age_cgam =}\NormalTok{ nknots_age_cgam,}
+                 \DataTypeTok{nknots_age_spline =}\NormalTok{ nknots_age_spline,}
+                 \DataTypeTok{nknots_period =}\NormalTok{ nknots_period,}
+                 \DataTypeTok{nconst =} \DecValTok{1} \OperatorTok{/}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(}\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{pi))}
+
+\NormalTok{### Initial values}
+\NormalTok{initsFun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{()}\KeywordTok{list}\NormalTok{(}\DataTypeTok{tau_age_cgam =} \KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                          \DataTypeTok{tau_age_spline =} \KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                          \DataTypeTok{beta0_temp =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{, beta0_true, .}\DecValTok{0001}\NormalTok{),}
+                          \DataTypeTok{mix =} \DecValTok{1}\NormalTok{,}
+                          \DataTypeTok{mix2 =} \DecValTok{1}\NormalTok{,}
+                          \DataTypeTok{sda_period =} \KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{),}
+                          \DataTypeTok{ln_sk_period =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                          \DataTypeTok{alpha_period =} \KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nknots_period),}
+                          \DataTypeTok{ln_b_age_cgam =} \KeywordTok{runif}\NormalTok{(nknots_age_cgam, }\OperatorTok{-}\DecValTok{10}\NormalTok{, }\OperatorTok{-}\DecValTok{5}\NormalTok{),}
+                          \DataTypeTok{b_age_spline =} \KeywordTok{rnorm}\NormalTok{(nknots_period) }\OperatorTok{*}\StringTok{ }\DecValTok{10}\OperatorTok{^-}\DecValTok{4}
+\NormalTok{                          )}
+\NormalTok{nimInits <-}\StringTok{ }\KeywordTok{initsFun}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Then we build the model, MCMC object, and run the MCMC approximation. We
+save the MCMC iterations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Rmodel <-}\StringTok{ }\KeywordTok{nimbleModel}\NormalTok{(}\DataTypeTok{code =}\NormalTok{ modelcode,}
+                      \DataTypeTok{constants =}\NormalTok{ nimConsts,}
+                      \DataTypeTok{data =}\NormalTok{ nimData,}
+                      \DataTypeTok{inits =} \KeywordTok{initsFun}\NormalTok{()}
+\NormalTok{                      )}
+
+\CommentTok{#identify params to monitor}
+\NormalTok{parameters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}
+              \StringTok{"beta0"}\NormalTok{,}
+              \StringTok{"S0_age"}\NormalTok{,}
+              \StringTok{"age_effect"}\NormalTok{,}
+              \StringTok{"age_effect_cgam"}\NormalTok{,}
+              \StringTok{"age_effect_spline"}\NormalTok{,}
+              \StringTok{"b_age_spline"}\NormalTok{,}
+              \StringTok{"b_age_cgam"}\NormalTok{,}
+              \StringTok{"tau_age_cgam"}\NormalTok{,}
+              \StringTok{"tau_age_spline"}\NormalTok{,}
+              \StringTok{"mu_age_cgam"}\NormalTok{,}
+              \StringTok{"period_effect"}\NormalTok{,}
+              \StringTok{"S0_period"}\NormalTok{,}
+              \StringTok{"llambda_period"}\NormalTok{,}
+              \StringTok{"sdk_period"}\NormalTok{,}
+              \StringTok{"sda_period"}\NormalTok{,}
+              \StringTok{"alpha_period"}\NormalTok{,}
+              \StringTok{"ratioinf_period"}
+\NormalTok{              )}
+
+\NormalTok{starttime<-}\KeywordTok{Sys.time}\NormalTok{()}
+\NormalTok{confMCMC <-}\StringTok{ }\KeywordTok{configureMCMC}\NormalTok{(Rmodel,}
+                          \DataTypeTok{monitors =}\NormalTok{ parameters,}
+                          \DataTypeTok{thin =}\NormalTok{ n_thin,}
+                          \DataTypeTok{useConjugacy =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{nimMCMC <-}\StringTok{ }\KeywordTok{buildMCMC}\NormalTok{(confMCMC, }\DataTypeTok{enableWAIC =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{Cnim <-}\StringTok{ }\KeywordTok{compileNimble}\NormalTok{(Rmodel)}
+\NormalTok{CnimMCMC <-}\StringTok{ }\KeywordTok{compileNimble}\NormalTok{(nimMCMC, }\DataTypeTok{project=}\NormalTok{Rmodel)}
+\NormalTok{mcmcout <-}\StringTok{ }\KeywordTok{runMCMC}\NormalTok{(CnimMCMC,}
+                   \DataTypeTok{niter =}\NormalTok{ reps,}
+                   \DataTypeTok{nburnin =}\NormalTok{ bin,}
+                   \DataTypeTok{nchains =}\NormalTok{ n_chains,}
+                   \DataTypeTok{inits =}\NormalTok{ initsFun,}
+                   \DataTypeTok{samplesAsCodaMCMC =} \OtherTok{TRUE}\NormalTok{,}
+                   \DataTypeTok{summary =} \OtherTok{TRUE}\NormalTok{,}
+                   \DataTypeTok{WAIC =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{runtime <-}\StringTok{ }\KeywordTok{diffperiod_}\NormalTok{(}\KeywordTok{Sys.time}\NormalTok{(), starttime, }\DataTypeTok{units =} \StringTok{"min"}\NormalTok{)}
+
+\KeywordTok{save}\NormalTok{(runtime, }\DataTypeTok{file =} \StringTok{"results/runtime.Rdata"}\NormalTok{)}
+\KeywordTok{save}\NormalTok{(mcmcout, }\DataTypeTok{file =} \StringTok{"results/mcmcout.Rdata"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+All of the code in this section is aggregated and combined in the file
+S4\_04\_run\_model\_kselect\_CSL\_K.R. Simulations were run on the
+University of Wisconsin, Madison's center for high though-put computing
+cluster. For each of the simulations, a different seed was used to run
+the models. Code for plotting this results of the simulation from a
+single seed, as well as for obtaining convergence diagnostics will be
+provided in the file S4\_05\_post\_plots\_kselect\_CSL\_K.R.
+
+It is not possible to extensively describe all of the models from both
+the simulations and from the case studies. However, they were all fit
+using similar code/methods. A key for fitting these models in in having
+to calculate the basis functions. In the model described above, several
+of the basis functions were used. I have aggregated all of the basis
+function calculations from all of the models in the document
+S4\_03\_basis\_functions.R.
+
+Code for running the kselect simulation for a single seed has been
+provided. To avoid redundant code, these same models were used for the
+rselect simulation for the single seed, as well as for both case
+studies. Data sets from the white-tailed deer and Columbian sharp-tailed
+grouse case studies were used rather than generated data. Code for
+loading these data are provided in the corresponding case study
+directories.
+
+\end{document}
